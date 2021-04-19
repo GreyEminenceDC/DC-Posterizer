@@ -1,3 +1,14 @@
+/**
+ * DC-posterizer
+ *  
+ * Author: Zane Deck (GreyEminence)
+ * Date: 4/19/2021
+ * 
+ * Desc: This program takes an input image located in the file DC-Posterizer located off the desktop and
+ *       creates a new image that pixel-by-pixel represents the clostest color avaliable in the designated 
+ *       palette.
+ * 
+ */
 import java.io.File;
 import java.io.IOException;
 import java.net.NoRouteToHostException;
@@ -27,13 +38,13 @@ class RBGNode{
 class CloseMatch{
     public static void main(String[] args){
         //load image
-        BufferedImage image = null;        
-        String filename = "Desktop/input.PNG";  //change 'input.PNG' to whatever your png filename is (keep .PNG)
+        BufferedImage image = null;
+        String filename = "./input.PNG";  //change 'input.PNG' to whatever your png filename is (keep .PNG)
         try{
             image = ImageIO.read(new File(filename));
             System.out.println("Reading complete.");
         }catch(IOException e){
-            System.out.println("Error: "+e);
+            System.out.println("Error1: "+e);
         }
 
         //set palette:
@@ -122,7 +133,7 @@ class CloseMatch{
         }
         //save image
     try{
-        File f = new File("Desktop/Output.png");  //output file path
+        File f = new File("Output.png");  //output file path
         ImageIO.write(image, "png", f);
         System.out.println("Writing complete.");
     }catch(IOException e){
